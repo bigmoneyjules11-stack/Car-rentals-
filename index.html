@@ -1,106 +1,788 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Dynamic Visuals</title>
- <script src="https://cdn.tailwindcss.com"></script>
- <style>
- .parallax-bg {
- background-image: url('https://picsum.photos/1920/1080');
- height: 100vh;
- background-attachment: fixed;
- background-position: center;
- background-repeat: no-repeat;
- background-size: cover;
- }
- </style>
-</head>
-<body class="font-sans text-gray-800 bg-gray-50 overflow-x-hidden">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vellum &amp; Wake — Luxury Car, Toy &amp; Marine Rentals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0a0e12;
+    --ink-2:#12181d;
+    --sand:#efe6d3;
+    --gold:#c9a15a;
+    --gold-dim:#8f7643;
+    --teal:#0e4c4b;
+    --coral:#ff6b4a;
+    --white:#fbf9f4;
+    --line: rgba(239,230,211,0.14);
+    --maxw: 1280px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--sand);
+    font-family:'Manrope', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+  }
+  h1,h2,h3,.serif{font-family:'Fraunces', serif;}
+  a{color:inherit; text-decoration:none;}
+  img,video{display:block; max-width:100%;}
+  button{font-family:inherit; cursor:pointer;}
+  :focus-visible{outline:2px solid var(--gold); outline-offset:3px;}
 
- <section class="h-screen flex items-center justify-center relative z-10 overflow-hidden">
- <video class="absolute top-0 left-0 w-full h-full object-cover z-[-1]" autoplay muted loop playsinline>
- <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
- </video>
- <div class="bg-black bg-opacity-50 p-8 rounded-lg text-center text-white">
- <h1 class="text-4xl md:text-6xl font-bold mb-4">Video Background</h1>
- <p class="text-lg mb-6">Enjoy a seamless video loop to catch user attention.</p>
- </div>
- </section>
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 32px;}
+  @media (max-width:640px){ .wrap{padding:0 20px;} }
 
- <div class="parallax-bg flex items-center justify-center relative">
- <div class="bg-black bg-opacity-40 p-8 rounded-lg text-white">
- <h1 class="text-4xl md:text-6xl font-bold mb-4">Parallax Scrolling</h1>
- <button class="px-8 py-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg shadow-lg transform transition duration-300 hover:scale-105 active:scale-95">Hover Me</button>
- </div>
- </div> <!DOCTYPE html>
-<html lang="en">
-<head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Dynamic Visuals</title>
- <style>
- body {
- margin: 0;
- font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
- background: #0f172a;
- color: #f8fafc;
- display: flex;
- justify-content: center;
- align-items: center;
- min-height: 100vh;
- overflow: hidden;
- }
- .container {
- text-align: center;
- }
- .circle {
- width: 150px;
- height: 150px;
- background: linear-gradient(135deg, #3b82f6, #8b5cf6);
- border-radius: 50%;
- margin: 0 auto 2rem;
- animation: pulse 2s infinite ease-in-out;
- box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
- }
- @keyframes pulse {
- 0%, 100% { transform: scale(1); opacity: 0.8; }
- 50% { transform: scale(1.1); opacity: 1; box-shadow: 0 0 50px rgba(139, 92, 246, 0.8); }
- }
- button {
- background: #3b82f6;
- color: white;
- border: none;
- padding: 0.75rem 1.5rem;
- font-size: 1rem;
- font-weight: bold;
- border-radius: 0.5rem;
- cursor: pointer;
- transition: transform 0.2s, background 0.2s;
- }
- button:hover {
- background: #2563eb;
- transform: scale(1.05);
- }
- </style>
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:200;
+    backdrop-filter: blur(14px);
+    background:rgba(10,14,18,0.55);
+    border-bottom:1px solid var(--line);
+  }
+  nav{display:flex; align-items:center; justify-content:space-between; padding:18px 32px; max-width:var(--maxw); margin:0 auto;}
+  .brand{display:flex; align-items:center; gap:10px; font-family:'Fraunces', serif; font-size:1.25rem; letter-spacing:0.02em;}
+  .brand .mark{width:26px; height:26px; border:1.5px solid var(--gold); border-radius:50%; display:grid; place-items:center; position:relative;}
+  .brand .mark::before{content:""; width:8px; height:8px; background:var(--gold); border-radius:50%;}
+  .navlinks{display:flex; gap:34px; font-size:0.88rem; letter-spacing:0.03em; text-transform:uppercase;}
+  .navlinks a{opacity:0.8; transition:opacity .2s; position:relative; padding-bottom:4px;}
+  .navlinks a:hover{opacity:1;}
+  .navlinks a::after{content:""; position:absolute; left:0; bottom:0; height:1px; width:0; background:var(--gold); transition:width .25s;}
+  .navlinks a:hover::after{width:100%;}
+  .nav-cta{
+    border:1px solid var(--gold); color:var(--gold); background:transparent;
+    padding:10px 20px; font-size:0.82rem; letter-spacing:0.05em; text-transform:uppercase;
+    border-radius:2px; transition: all .25s;
+  }
+  .nav-cta:hover{background:var(--gold); color:var(--ink);}
+  .navburger{display:none; flex-direction:column; gap:5px; background:none; border:none;}
+  .navburger span{width:24px; height:1.5px; background:var(--sand);}
+  @media (max-width:860px){
+    .navlinks{display:none;}
+    .navburger{display:flex;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative; height:100vh; min-height:640px; overflow:hidden;
+    display:flex; align-items:flex-end;
+  }
+  .hero video{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+    filter:saturate(1.15) contrast(1.03);
+  }
+  .hero::before{
+    content:""; position:absolute; inset:0;
+    background: linear-gradient(180deg, rgba(10,14,18,0.35) 0%, rgba(10,14,18,0.15) 35%, rgba(10,14,18,0.92) 100%);
+    z-index:1;
+  }
+  .hero-content{position:relative; z-index:2; width:100%; padding-bottom:96px;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace; font-size:0.78rem; letter-spacing:0.18em; text-transform:uppercase;
+    color:var(--gold); margin-bottom:18px; display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow .dot{width:6px; height:6px; border-radius:50%; background:var(--coral); animation:pulse 1.8s infinite;}
+  @keyframes pulse{0%,100%{opacity:1; transform:scale(1);} 50%{opacity:0.4; transform:scale(0.7);}}
+  .hero h1{
+    font-size:clamp(2.6rem, 6.4vw, 5.6rem); font-weight:500; line-height:0.98; letter-spacing:-0.01em;
+    max-width:15ch; color:var(--white);
+  }
+  .hero h1 em{font-style:italic; color:var(--gold); font-weight:500;}
+  .hero p{
+    margin-top:22px; max-width:46ch; font-size:1.05rem; line-height:1.6; color:rgba(239,230,211,0.82);
+  }
+  .hero-actions{display:flex; gap:16px; margin-top:36px; flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--gold); color:var(--ink); padding:16px 30px; font-weight:700; font-size:0.85rem;
+    letter-spacing:0.04em; text-transform:uppercase; border:none; border-radius:2px; transition:transform .2s, background .2s;
+  }
+  .btn-primary:hover{transform:translateY(-2px); background:#dab672;}
+  .btn-ghost{
+    border:1px solid rgba(239,230,211,0.4); color:var(--white); padding:16px 30px; font-size:0.85rem;
+    letter-spacing:0.04em; text-transform:uppercase; background:transparent; border-radius:2px; transition:all .2s;
+    display:flex; align-items:center; gap:10px;
+  }
+  .btn-ghost:hover{border-color:var(--white); background:rgba(255,255,255,0.06);}
+
+  .scroll-cue{
+    position:absolute; right:32px; bottom:36px; z-index:2; writing-mode:vertical-rl;
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem; letter-spacing:0.15em; color:rgba(239,230,211,0.6);
+    display:flex; align-items:center; gap:10px;
+  }
+  .scroll-cue .line{width:1px; height:44px; background:linear-gradient(var(--gold), transparent); animation:drop 2s infinite;}
+  @keyframes drop{0%{transform:scaleY(0); transform-origin:top;} 50%{transform:scaleY(1); transform-origin:top;} 51%{transform-origin:bottom;} 100%{transform:scaleY(0); transform-origin:bottom;}}
+
+  /* ---------- MANIFEST TICKER (signature element) ---------- */
+  .manifest{
+    background:var(--gold); color:var(--ink); overflow:hidden; white-space:nowrap;
+    border-bottom:1px solid var(--ink);
+  }
+  .manifest-track{display:inline-flex; gap:48px; padding:11px 0; animation:scroll-left 32s linear infinite;}
+  .manifest:hover .manifest-track{animation-play-state:paused;}
+  @keyframes scroll-left{from{transform:translateX(0);} to{transform:translateX(-50%);}}
+  .manifest-item{
+    font-family:'IBM Plex Mono', monospace; font-size:0.8rem; letter-spacing:0.04em; display:flex; gap:10px; align-items:center;
+  }
+  .manifest-item .stat{
+    font-weight:600; padding:1px 7px; border-radius:2px; font-size:0.7rem;
+  }
+  .stat.avail{background:var(--teal); color:var(--white);}
+  .stat.hold{background:var(--ink); color:var(--gold);}
+  .stat.out{background:var(--coral); color:var(--ink);}
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section{padding:120px 0;}
+  .section.tight{padding:80px 0;}
+  .section-head{display:flex; justify-content:space-between; align-items:flex-end; gap:40px; margin-bottom:56px; flex-wrap:wrap;}
+  .section-head .eyebrow{margin-bottom:14px;}
+  .section-head h2{font-size:clamp(2rem, 4vw, 3.1rem); font-weight:500; max-width:14ch; color:var(--white);}
+  .section-head p{max-width:38ch; color:rgba(239,230,211,0.7); line-height:1.6; font-size:0.98rem;}
+
+  /* ---------- FLEET TABS ---------- */
+  .tabs{display:flex; gap:8px; margin-bottom:44px; flex-wrap:wrap;}
+  .tab{
+    padding:11px 22px; border:1px solid var(--line); background:transparent; color:var(--sand);
+    font-size:0.85rem; letter-spacing:0.03em; border-radius:999px; transition:all .2s;
+  }
+  .tab.active, .tab:hover{background:var(--sand); color:var(--ink); border-color:var(--sand);}
+
+  .fleet-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:26px;}
+  @media (max-width:980px){ .fleet-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:640px){ .fleet-grid{grid-template-columns:1fr;} }
+
+  .card{
+    position:relative; border:1px solid var(--line); border-radius:6px; overflow:hidden; background:var(--ink-2);
+    transition:transform .35s ease, border-color .35s;
+  }
+  .card:hover{transform:translateY(-6px); border-color:var(--gold-dim);}
+  .card .media{
+    position:relative; aspect-ratio:4/3; overflow:hidden;
+    background: radial-gradient(circle at 30% 20%, var(--teal), var(--ink) 70%);
+  }
+  .card .media .glyph{
+    position:absolute; inset:0; display:grid; place-items:center; font-size:3.6rem; opacity:0.85;
+    transition:transform .5s ease;
+  }
+  .card:hover .media .glyph{transform:scale(1.08) translateY(-4px);}
+  .card .media::after{
+    content:""; position:absolute; inset:0; background:linear-gradient(180deg, transparent 40%, rgba(10,14,18,0.9) 100%);
+  }
+  .card .badge{
+    position:absolute; top:14px; left:14px; z-index:2; font-family:'IBM Plex Mono', monospace; font-size:0.68rem;
+    letter-spacing:0.06em; text-transform:uppercase; padding:5px 10px; border-radius:2px; background:rgba(10,14,18,0.7);
+    border:1px solid var(--line); color:var(--gold);
+  }
+  .card .body{padding:22px;}
+  .card h3{font-size:1.28rem; font-weight:500; color:var(--white); margin-bottom:6px;}
+  .card .meta{display:flex; justify-content:space-between; align-items:center; font-size:0.85rem; color:rgba(239,230,211,0.65); margin-bottom:18px;}
+  .card .price{font-family:'IBM Plex Mono', monospace; color:var(--gold); font-size:0.95rem;}
+  .card .reserve{
+    width:100%; padding:12px; background:transparent; border:1px solid var(--sand); color:var(--sand);
+    font-size:0.8rem; letter-spacing:0.05em; text-transform:uppercase; border-radius:2px; transition:all .2s;
+  }
+  .card .reserve:hover{background:var(--sand); color:var(--ink);}
+
+  /* ---------- MIAMI LIVE SECTION ---------- */
+  .miami{background:var(--ink-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .miami-grid{display:grid; grid-template-columns:1.15fr 0.85fr; gap:0; align-items:stretch;}
+  @media (max-width:900px){ .miami-grid{grid-template-columns:1fr;} }
+  .miami-video{position:relative; min-height:460px; overflow:hidden;}
+  .miami-video video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:saturate(1.3) brightness(1.05);}
+  .miami-video .tag{
+    position:absolute; bottom:20px; left:20px; z-index:2; display:flex; align-items:center; gap:8px;
+    background:rgba(10,14,18,0.55); backdrop-filter:blur(6px); padding:8px 14px; border-radius:999px;
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem; letter-spacing:0.05em; color:var(--white);
+  }
+  .miami-video .tag .dot{width:6px; height:6px; border-radius:50%; background:var(--coral);}
+  .miami-copy{padding:56px 48px; display:flex; flex-direction:column; justify-content:center; background:var(--ink-2);}
+  .miami-copy .eyebrow{color:var(--coral);}
+  .miami-copy h2{font-size:clamp(1.8rem, 3vw, 2.6rem); color:var(--white); margin-bottom:16px; font-weight:500;}
+  .miami-copy p{color:rgba(239,230,211,0.75); line-height:1.7; margin-bottom:28px;}
+  .miami-stats{display:flex; gap:32px; margin-bottom:8px;}
+  .miami-stats div{font-family:'IBM Plex Mono', monospace;}
+  .miami-stats .n{font-size:1.7rem; color:var(--gold); display:block;}
+  .miami-stats .l{font-size:0.72rem; text-transform:uppercase; letter-spacing:0.05em; color:rgba(239,230,211,0.55);}
+
+  /* ---------- LIVE STREAM ---------- */
+  .live{padding:120px 0; background:var(--ink);}
+  .live-panel{
+    display:grid; grid-template-columns:1.4fr 1fr; border:1px solid var(--line); border-radius:8px; overflow:hidden;
+  }
+  @media (max-width:860px){ .live-panel{grid-template-columns:1fr;} }
+  .live-stage{
+    position:relative; background:#000; aspect-ratio:16/9; display:flex; align-items:center; justify-content:center;
+  }
+  .live-stage video{width:100%; height:100%; object-fit:cover;}
+  .live-stage .placeholder{
+    text-align:center; color:rgba(239,230,211,0.55); padding:40px; font-size:0.95rem; line-height:1.6; max-width:36ch;
+  }
+  .live-stage .placeholder strong{display:block; color:var(--sand); font-family:'Fraunces',serif; font-size:1.3rem; margin-bottom:10px; font-weight:500;}
+  .live-badge{
+    position:absolute; top:16px; left:16px; z-index:3; display:flex; align-items:center; gap:8px;
+    background:var(--coral); color:var(--ink); font-family:'IBM Plex Mono', monospace; font-size:0.72rem;
+    font-weight:700; letter-spacing:0.06em; padding:6px 12px; border-radius:3px; opacity:0; transition:opacity .2s;
+  }
+  .live-badge.on{opacity:1;}
+  .live-badge .dot{width:6px; height:6px; border-radius:50%; background:var(--ink); animation:pulse 1.4s infinite;}
+  .live-viewers{
+    position:absolute; top:16px; right:16px; z-index:3; background:rgba(10,14,18,0.65); backdrop-filter:blur(6px);
+    color:var(--white); font-family:'IBM Plex Mono', monospace; font-size:0.75rem; padding:6px 12px; border-radius:3px;
+    opacity:0; transition:opacity .2s;
+  }
+  .live-viewers.on{opacity:1;}
+  .live-controls{padding:20px 22px; border-top:1px solid var(--line); display:flex; gap:12px; align-items:center; background:var(--ink-2);}
+  .go-live-btn{
+    background:var(--coral); color:var(--ink); border:none; padding:13px 24px; font-weight:700; font-size:0.82rem;
+    letter-spacing:0.04em; text-transform:uppercase; border-radius:3px; transition:transform .2s;
+  }
+  .go-live-btn:hover{transform:translateY(-2px);}
+  .go-live-btn.active{background:var(--ink); color:var(--coral); border:1px solid var(--coral);}
+  .live-note{font-size:0.78rem; color:rgba(239,230,211,0.5); line-height:1.5;}
+
+  .live-side{background:var(--ink-2); padding:26px; display:flex; flex-direction:column;}
+  .live-side h3{color:var(--white); font-size:1.2rem; margin-bottom:8px; font-weight:500;}
+  .live-side>p{font-size:0.88rem; color:rgba(239,230,211,0.65); line-height:1.6; margin-bottom:20px;}
+  .live-feed{
+    flex:1; border:1px solid var(--line); border-radius:6px; padding:14px; min-height:220px; max-height:280px;
+    overflow-y:auto; display:flex; flex-direction:column; gap:10px; margin-bottom:14px; font-size:0.85rem;
+  }
+  .live-feed .msg{line-height:1.4;}
+  .live-feed .msg b{color:var(--gold); margin-right:6px;}
+  .live-feed .msg.sys{color:rgba(239,230,211,0.5); font-style:italic;}
+  .live-input{display:flex; gap:8px;}
+  .live-input input{
+    flex:1; background:var(--ink); border:1px solid var(--line); border-radius:4px; padding:11px 12px;
+    color:var(--sand); font-family:inherit; font-size:0.85rem;
+  }
+  .live-input input:focus{border-color:var(--gold);}
+  .live-input button{
+    background:var(--gold); color:var(--ink); border:none; padding:0 18px; border-radius:4px; font-weight:700; font-size:0.85rem;
+  }
+
+  /* ---------- BOOKING ---------- */
+  .booking{background:var(--ink-2); border-top:1px solid var(--line);}
+  .booking-inner{display:grid; grid-template-columns:0.9fr 1.1fr; gap:60px; align-items:start;}
+  @media (max-width:900px){ .booking-inner{grid-template-columns:1fr;} }
+  .booking-copy h2{font-size:clamp(1.9rem,3.2vw,2.7rem); color:var(--white); font-weight:500; margin-bottom:18px;}
+  .booking-copy p{color:rgba(239,230,211,0.72); line-height:1.7; margin-bottom:26px;}
+  .booking-list{list-style:none; display:flex; flex-direction:column; gap:14px;}
+  .booking-list li{display:flex; gap:12px; align-items:flex-start; font-size:0.92rem; color:rgba(239,230,211,0.85);}
+  .booking-list .num{font-family:'IBM Plex Mono', monospace; color:var(--gold); font-size:0.8rem; padding-top:2px;}
+
+  form.book{display:flex; flex-direction:column; gap:16px; background:var(--ink); border:1px solid var(--line); border-radius:8px; padding:32px;}
+  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  @media (max-width:520px){ .form-row{grid-template-columns:1fr;} }
+  label{font-size:0.75rem; text-transform:uppercase; letter-spacing:0.05em; color:rgba(239,230,211,0.6); margin-bottom:6px; display:block;}
+  input, select{
+    width:100%; background:var(--ink-2); border:1px solid var(--line); border-radius:4px; padding:12px 14px;
+    color:var(--sand); font-family:inherit; font-size:0.92rem;
+  }
+  input:focus, select:focus{border-color:var(--gold);}
+  .submit-btn{
+    background:var(--gold); color:var(--ink); border:none; padding:15px; font-weight:700; font-size:0.85rem;
+    letter-spacing:0.05em; text-transform:uppercase; border-radius:4px; margin-top:6px; transition:background .2s;
+  }
+  .submit-btn:hover{background:#dab672;}
+  .confirm{
+    display:none; background:rgba(14,76,75,0.35); border:1px solid var(--teal); color:var(--sand);
+    padding:14px 16px; border-radius:4px; font-size:0.88rem; margin-top:4px;
+  }
+  .confirm.show{display:block;}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:70px 0 40px; border-top:1px solid var(--line);}
+  .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px; margin-bottom:50px;}
+  @media (max-width:760px){ .foot-grid{grid-template-columns:1fr 1fr;} }
+  .foot-grid h4{font-size:0.78rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--gold); margin-bottom:16px;}
+  .foot-grid ul{list-style:none; display:flex; flex-direction:column; gap:10px;}
+  .foot-grid a{font-size:0.88rem; color:rgba(239,230,211,0.7); transition:color .2s;}
+  .foot-grid a:hover{color:var(--white);}
+  .foot-bottom{display:flex; justify-content:space-between; align-items:center; padding-top:26px; border-top:1px solid var(--line); font-size:0.78rem; color:rgba(239,230,211,0.45); flex-wrap:wrap; gap:12px;}
+
+  /* ---------- LIVE CHAT WIDGET ---------- */
+  .chat-bubble{
+    position:fixed; bottom:24px; right:24px; z-index:300; width:60px; height:60px; border-radius:50%;
+    background:var(--gold); border:none; display:grid; place-items:center; box-shadow:0 8px 24px rgba(0,0,0,0.4);
+    font-size:1.5rem; transition:transform .2s;
+  }
+  .chat-bubble:hover{transform:scale(1.06);}
+  .chat-bubble .ping{
+    position:absolute; top:-3px; right:-3px; width:14px; height:14px; background:var(--coral); border-radius:50%;
+    border:2px solid var(--ink); animation:pulse 1.6s infinite;
+  }
+  .chat-window{
+    position:fixed; bottom:96px; right:24px; z-index:300; width:340px; max-width:88vw; height:440px;
+    background:var(--ink-2); border:1px solid var(--line); border-radius:10px; display:none; flex-direction:column;
+    overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,0.5);
+  }
+  .chat-window.open{display:flex;}
+  .chat-head{padding:16px 18px; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:center;}
+  .chat-head div b{display:block; color:var(--white); font-size:0.95rem;}
+  .chat-head div span{font-size:0.75rem; color:var(--teal); display:flex; align-items:center; gap:5px;}
+  .chat-head div span::before{content:""; width:6px; height:6px; border-radius:50%; background:#4fd1a5; display:inline-block;}
+  .chat-close{background:none; border:none; color:var(--sand); font-size:1.2rem; opacity:0.6;}
+  .chat-close:hover{opacity:1;}
+  .chat-body{flex:1; overflow-y:auto; padding:16px 18px; display:flex; flex-direction:column; gap:12px;}
+  .bubble{max-width:80%; padding:10px 13px; border-radius:10px; font-size:0.86rem; line-height:1.45;}
+  .bubble.agent{background:var(--ink); border:1px solid var(--line); align-self:flex-start; border-bottom-left-radius:2px;}
+  .bubble.user{background:var(--gold); color:var(--ink); align-self:flex-end; border-bottom-right-radius:2px;}
+  .chat-foot{padding:12px; border-top:1px solid var(--line); display:flex; gap:8px;}
+  .chat-foot input{flex:1; background:var(--ink); border:1px solid var(--line); border-radius:6px; padding:10px 12px; color:var(--sand); font-size:0.85rem; font-family:inherit;}
+  .chat-foot button{background:var(--gold); color:var(--ink); border:none; border-radius:6px; padding:0 16px; font-weight:700;}
+
+  /* reveal on scroll */
+  .reveal{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+</style>
 </head>
 <body>
- <div class="container">
- <div class="circle"></div>
- <h1>Modern Interactive Visuals</h1>
- <p>Clean CSS animations with zero external dependencies.</p>
- <button>Explore</button>
- </div>
-</body>
-</html>
 
- <section class="h-screen flex items-center justify-center bg-gray-100">
- <div class="text-center">
- <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
- <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_UJNc2t.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></lottie-player>
- <p class="mt-4 text-gray-600">Lightweight Lottie Animation</p>
- </div>
- </section>
+<header>
+  <nav>
+    <div class="brand"><span class="mark"></span> Vellum &amp; Wake</div>
+    <div class="navlinks">
+      <a href="#fleet">Fleet</a>
+      <a href="#miami">Miami</a>
+      <a href="#live">Live</a>
+      <a href="#book">Book</a>
+    </div>
+    <button class="nav-cta" onclick="document.getElementById('book').scrollIntoView({behavior:'smooth'})">Reserve</button>
+    <button class="navburger" aria-label="menu"><span></span><span></span><span></span></button>
+  </nav>
+</header>
 
+<!-- HERO -->
+<section class="hero">
+  <video autoplay muted loop playsinline poster="https://images.pexels.com/videos/15820851/bestrealestatephotography-dronebogota-dronechile-dronecolombia-15820851.jpeg?auto=compress&cs=tinysrgb&h=900">
+    <source src="https://videos.pexels.com/video-files/15820851/15820851-uhd_2560_1440_60fps.mp4" type="video/mp4">
+  </video>
+  <div class="hero-content wrap">
+    <div class="eyebrow"><span class="dot"></span> Miami · Aspen · Monaco</div>
+    <h1>Drive it. Ride it. <em>Own the moment.</em></h1>
+    <p>Exotic cars, high-performance toys, and marine craft — delivered wherever the weekend takes you. Reserve in minutes, chat with a concierge live, or watch the fleet in action right now.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="document.getElementById('fleet').scrollIntoView({behavior:'smooth'})">Browse the Fleet</button>
+      <button class="btn-ghost" onclick="document.getElementById('live').scrollIntoView({behavior:'smooth'})">▶ Watch Live</button>
+    </div>
+  </div>
+  <div class="scroll-cue"><span class="line"></span> SCROLL</div>
+</section>
+
+<!-- MANIFEST TICKER -->
+<div class="manifest">
+  <div class="manifest-track" id="manifestTrack"></div>
+</div>
+
+<!-- FLEET -->
+<section class="section" id="fleet">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow">The Fleet</div>
+        <h2>Three garages. One reservation.</h2>
+      </div>
+      <p>Every unit is inspected, detailed, and delivered by our team — cars, toys, and marine craft, side by side.</p>
+    </div>
+
+    <div class="tabs reveal">
+      <button class="tab active" data-filter="all">All Inventory</button>
+      <button class="tab" data-filter="car">Supercars</button>
+      <button class="tab" data-filter="toy">Luxury Toys</button>
+      <button class="tab" data-filter="jet">Jet Skis</button>
+    </div>
+
+    <div class="fleet-grid" id="fleetGrid"></div>
+  </div>
+</section>
+
+<!-- MIAMI -->
+<section class="miami" id="miami">
+  <div class="miami-grid">
+    <div class="miami-video reveal">
+      <video autoplay muted loop playsinline poster="https://images.pexels.com/videos/15820851/bestrealestatephotography-dronebogota-dronechile-dronecolombia-15820851.jpeg?auto=compress&cs=tinysrgb&h=900">
+        <source src="https://videos.pexels.com/video-files/15820851/15820851-uhd_2560_1440_60fps.mp4" type="video/mp4">
+      </video>
+      <div class="tag"><span class="dot"></span> LIVE FEED · SOUTH BEACH DOCK</div>
+    </div>
+    <div class="miami-copy reveal">
+      <div class="eyebrow">Home Base</div>
+      <h2>Miami is where the fleet lives loudest.</h2>
+      <p>Turquoise water, sunny skies, and a dock full of jet skis waiting for a throttle. Our South Beach location is the flagship — book a supercar for the causeway or a jet ski for the bay, same app, same day.</p>
+      <div class="miami-stats">
+        <div><span class="n">03</span><span class="l">Miami docks</span></div>
+        <div><span class="n">24/7</span><span class="l">Delivery window</span></div>
+        <div><span class="n">4.9</span><span class="l">Guest rating</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE STREAM -->
+<section class="live" id="live">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow" style="color:var(--coral)">Go Live</div>
+        <h2>Broadcast your ride, right from your browser.</h2>
+      </div>
+      <p>Renters can stream a walkaround, a dock check-in, or the drive itself — friends and our concierge team can watch and chat in real time.</p>
+    </div>
+
+    <div class="live-panel reveal">
+      <div>
+        <div class="live-stage" id="liveStage">
+          <video id="liveVideo" autoplay muted playsinline style="display:none;"></video>
+          <div class="placeholder" id="livePlaceholder">
+            <strong>Nothing streaming yet</strong>
+            Tap "Go Live" and allow camera access to broadcast a preview of your walkaround, delivery, or drive.
+          </div>
+          <div class="live-badge" id="liveBadge"><span class="dot"></span> LIVE</div>
+          <div class="live-viewers" id="liveViewers">👁 0 watching</div>
+        </div>
+        <div class="live-controls">
+          <button class="go-live-btn" id="goLiveBtn">● Go Live</button>
+          <div class="live-note">Streams are local to this browser tab — a private demo of the broadcast experience.</div>
+        </div>
+      </div>
+
+      <div class="live-side">
+        <h3>Stream chat</h3>
+        <p>Say hello to the concierge desk or ask about a unit you see on camera.</p>
+        <div class="live-feed" id="liveFeed">
+          <div class="msg sys">Stream chat opens once you go live.</div>
+        </div>
+        <div class="live-input">
+          <input type="text" id="liveChatInput" placeholder="Send a message…" disabled>
+          <button id="liveChatSend" disabled>Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking" id="book">
+  <div class="wrap">
+    <div class="booking-inner">
+      <div class="booking-copy reveal">
+        <div class="eyebrow">Reserve</div>
+        <h2>Booking takes about ninety seconds.</h2>
+        <p>Pick a category, tell us the dates, and a concierge confirms delivery details by text within the hour.</p>
+        <ul class="booking-list">
+          <li><span class="num">01</span> Choose your car, toy, or jet ski below.</li>
+          <li><span class="num">02</span> Set your dates and drop-off location.</li>
+          <li><span class="num">03</span> We deliver, fuel up, and walk you through it.</li>
+        </ul>
+      </div>
+
+      <form class="book reveal" id="bookForm">
+        <div class="form-row">
+          <div>
+            <label for="fname">First name</label>
+            <input type="text" id="fname" required>
+          </div>
+          <div>
+            <label for="lname">Last name</label>
+            <input type="text" id="lname" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" required>
+          </div>
+          <div>
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            <label for="category">Category</label>
+            <select id="category">
+              <option value="car">Supercar</option>
+              <option value="toy">Luxury Toy</option>
+              <option value="jet">Jet Ski</option>
+            </select>
+          </div>
+          <div>
+            <label for="unit">Unit</label>
+            <select id="unit"></select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            <label for="start">Start date</label>
+            <input type="date" id="start" required>
+          </div>
+          <div>
+            <label for="end">End date</label>
+            <input type="date" id="end" required>
+          </div>
+        </div>
+        <button type="submit" class="submit-btn">Request Reservation</button>
+        <div class="confirm" id="confirmBox">Request received — a concierge will text you shortly to confirm delivery details.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand" style="margin-bottom:14px;"><span class="mark"></span> Vellum &amp; Wake</div>
+        <p style="font-size:0.88rem; color:rgba(239,230,211,0.6); max-width:32ch; line-height:1.6;">Exotic cars, luxury toys, and marine craft, delivered on your schedule.</p>
+      </div>
+      <div>
+        <h4>Fleet</h4>
+        <ul><li><a href="#fleet">Supercars</a></li><li><a href="#fleet">Luxury Toys</a></li><li><a href="#fleet">Jet Skis</a></li></ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul><li><a href="#miami">Miami HQ</a></li><li><a href="#live">Live Streams</a></li><li><a href="#book">Reservations</a></li></ul>
+      </div>
+      <div>
+        <h4>Concierge</h4>
+        <ul><li><a href="tel:13055551200">+1 (305) 555-1200</a></li><li><a href="mailto:concierge@vellumwake.com">concierge@vellumwake.com</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Vellum &amp; Wake. All units subject to availability.</span>
+      <span>South Beach · Aspen · Monaco</span>
+    </div>
+  </div>
+</footer>
+
+<!-- CHAT WIDGET -->
+<button class="chat-bubble" id="chatBubble" aria-label="Open live chat">💬<span class="ping"></span></button>
+<div class="chat-window" id="chatWindow">
+  <div class="chat-head">
+    <div><b>Concierge Desk</b><span>Online now</span></div>
+    <button class="chat-close" id="chatClose">✕</button>
+  </div>
+  <div class="chat-body" id="chatBody">
+    <div class="bubble agent">Hey! I'm Reese from the concierge desk. Looking for a car, a toy, or a jet ski today?</div>
+  </div>
+  <div class="chat-foot">
+    <input type="text" id="chatInput" placeholder="Type a message…">
+    <button id="chatSend">Send</button>
+  </div>
+</div>
+
+<script>
+// ---------- FLEET DATA ----------
+const fleet = [
+  {cat:'car', name:'Lamborghini Huracán EVO', glyph:'🏎️', tag:'Supercar', spec:'640 hp · 2 seats', price:'$1,450/day'},
+  {cat:'car', name:'Ferrari 488 Spider', glyph:'🏎️', tag:'Supercar', spec:'661 hp · Convertible', price:'$1,600/day'},
+  {cat:'car', name:'Rolls-Royce Cullinan', glyph:'🚙', tag:'Ultra SUV', spec:'563 hp · 4 seats', price:'$1,100/day'},
+  {cat:'car', name:'McLaren 720S', glyph:'🏎️', tag:'Supercar', spec:'710 hp · 2 seats', price:'$1,750/day'},
+  {cat:'car', name:'Bentley Continental GT', glyph:'🚗', tag:'Grand Tourer', spec:'542 hp · 4 seats', price:'$950/day'},
+  {cat:'car', name:'Porsche 911 Turbo S', glyph:'🏎️', tag:'Supercar', spec:'640 hp · 4 seats', price:'$980/day'},
+  {cat:'toy', name:'Can-Am Ryker Rally', glyph:'🏍️', tag:'3-Wheel', spec:'900cc · Beach-ready', price:'$220/day'},
+  {cat:'toy', name:'Polaris RZR Turbo R', glyph:'🏎️', tag:'Off-Road', spec:'225 hp · 2 seats', price:'$380/day'},
+  {cat:'toy', name:'Vespa GTS 300 Fleet', glyph:'🛵', tag:'Scooter', spec:'300cc · City cruiser', price:'$95/day'},
+  {cat:'jet', name:'Sea-Doo RXP-X 300', glyph:'🌊', tag:'Performance Ski', spec:'300 hp · 60 mph', price:'$340/day'},
+  {cat:'jet', name:'Yamaha WaveRunner FX', glyph:'🌊', tag:'Cruiser Ski', spec:'1.8L · 3 riders', price:'$280/day'},
+  {cat:'jet', name:'Sea-Doo Switch Pontoon', glyph:'🛥️', tag:'Party Craft', spec:'170 hp · 8 riders', price:'$520/day'},
+];
+
+const grid = document.getElementById('fleetGrid');
+function renderFleet(filter){
+  grid.innerHTML = '';
+  fleet.filter(f => filter==='all' || f.cat===filter).forEach(f=>{
+    const el = document.createElement('div');
+    el.className = 'card reveal in';
+    el.innerHTML = `
+      <div class="media">
+        <span class="badge">${f.tag}</span>
+        <div class="glyph">${f.glyph}</div>
+      </div>
+      <div class="body">
+        <h3>${f.name}</h3>
+        <div class="meta"><span>${f.spec}</span><span class="price">${f.price}</span></div>
+        <button class="reserve">Reserve This Unit</button>
+      </div>`;
+    el.querySelector('.reserve').addEventListener('click', ()=>{
+      document.getElementById('category').value = f.cat;
+      updateUnitOptions();
+      document.getElementById('unit').value = f.name;
+      document.getElementById('book').scrollIntoView({behavior:'smooth'});
+    });
+    grid.appendChild(el);
+  });
+}
+renderFleet('all');
+
+document.querySelectorAll('.tab').forEach(tab=>{
+  tab.addEventListener('click', ()=>{
+    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+    tab.classList.add('active');
+    renderFleet(tab.dataset.filter);
+  });
+});
+
+// ---------- MANIFEST TICKER ----------
+const manifestData = [
+  ...fleet.map(f=>({name:f.name, status: Math.random()>0.75?'HOLD':(Math.random()>0.9?'OUT':'AVAIL')}))
+];
+const track = document.getElementById('manifestTrack');
+function buildManifest(){
+  let html = '';
+  for(let rep=0; rep<2; rep++){
+    manifestData.forEach(m=>{
+      const cls = m.status==='AVAIL' ? 'avail' : (m.status==='HOLD' ? 'hold' : 'out');
+      html += `<span class="manifest-item">${m.name} <span class="stat ${cls}">${m.status}</span></span>`;
+    });
+  }
+  track.innerHTML = html;
+}
+buildManifest();
+
+// ---------- BOOKING FORM ----------
+const unitSelect = document.getElementById('unit');
+const categorySelect = document.getElementById('category');
+function updateUnitOptions(){
+  const cat = categorySelect.value;
+  unitSelect.innerHTML = fleet.filter(f=>f.cat===cat).map(f=>`<option value="${f.name}">${f.name}</option>`).join('');
+}
+categorySelect.addEventListener('change', updateUnitOptions);
+updateUnitOptions();
+
+document.getElementById('bookForm').addEventListener('submit', e=>{
+  e.preventDefault();
+  document.getElementById('confirmBox').classList.add('show');
+});
+
+// ---------- REVEAL ON SCROLL ----------
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(en=>{ if(en.isIntersecting) en.target.classList.add('in'); });
+}, {threshold:0.15});
+revealEls.forEach(el=>io.observe(el));
+
+// ---------- LIVE STREAM ----------
+const goLiveBtn = document.getElementById('goLiveBtn');
+const liveVideo = document.getElementById('liveVideo');
+const livePlaceholder = document.getElementById('livePlaceholder');
+const liveBadge = document.getElementById('liveBadge');
+const liveViewers = document.getElementById('liveViewers');
+const liveFeed = document.getElementById('liveFeed');
+const liveChatInput = document.getElementById('liveChatInput');
+const liveChatSend = document.getElementById('liveChatSend');
+let liveStreamActive = false;
+let mediaStream = null;
+let viewerInterval = null;
+
+function addLiveMsg(who, text, sys=false){
+  const d = document.createElement('div');
+  d.className = 'msg' + (sys ? ' sys' : '');
+  d.innerHTML = sys ? text : `<b>${who}:</b>${text}`;
+  liveFeed.appendChild(d);
+  liveFeed.scrollTop = liveFeed.scrollHeight;
+}
+
+goLiveBtn.addEventListener('click', async ()=>{
+  if(!liveStreamActive){
+    try{
+      mediaStream = await navigator.mediaDevices.getUserMedia({video:true, audio:true});
+      liveVideo.srcObject = mediaStream;
+      liveVideo.style.display = 'block';
+      livePlaceholder.style.display = 'none';
+      liveStreamActive = true;
+      goLiveBtn.textContent = '■ End Stream';
+      goLiveBtn.classList.add('active');
+      liveBadge.classList.add('on');
+      liveViewers.classList.add('on');
+      liveChatInput.disabled = false;
+      liveChatSend.disabled = false;
+      liveFeed.innerHTML = '';
+      addLiveMsg(null, 'You are live. Viewers can now see your camera and chat.', true);
+      let viewers = 2;
+      liveViewers.textContent = `👁 ${viewers} watching`;
+      viewerInterval = setInterval(()=>{
+        viewers += Math.random() > 0.5 ? 1 : 0;
+        liveViewers.textContent = `👁 ${viewers} watching`;
+      }, 4000);
+      setTimeout(()=> addLiveMsg('Concierge · Reese', ' welcome to the stream — nice angle on that dock! Let us know if you need anything delivered.'), 2200);
+    }catch(err){
+      addLiveMsg(null, 'Camera access was blocked or unavailable in this browser — streaming needs camera/mic permission.', true);
+    }
+  } else {
+    if(mediaStream){ mediaStream.getTracks().forEach(t=>t.stop()); }
+    liveVideo.style.display = 'none';
+    livePlaceholder.style.display = 'block';
+    liveStreamActive = false;
+    goLiveBtn.textContent = '● Go Live';
+    goLiveBtn.classList.remove('active');
+    liveBadge.classList.remove('on');
+    liveViewers.classList.remove('on');
+    liveChatInput.disabled = true;
+    liveChatSend.disabled = true;
+    clearInterval(viewerInterval);
+    liveFeed.innerHTML = '<div class="msg sys">Stream ended. Tap "Go Live" to start again.</div>';
+  }
+});
+
+function sendLiveChat(){
+  const val = liveChatInput.value.trim();
+  if(!val) return;
+  addLiveMsg('You', ' ' + val);
+  liveChatInput.value = '';
+  setTimeout(()=>{
+    const replies = ["got it — noted for the delivery team.", "good question, checking availability now.", "that unit's fully fueled and ready for you."];
+    addLiveMsg('Concierge · Reese', ' ' + replies[Math.floor(Math.random()*replies.length)]);
+  }, 1200);
+}
+liveChatSend.addEventListener('click', sendLiveChat);
+liveChatInput.addEventListener('keydown', e=>{ if(e.key==='Enter') sendLiveChat(); });
+
+// ---------- LIVE CHAT WIDGET ----------
+const chatBubble = document.getElementById('chatBubble');
+const chatWindow = document.getElementById('chatWindow');
+const chatClose = document.getElementById('chatClose');
+const chatBody = document.getElementById('chatBody');
+const chatInput = document.getElementById('chatInput');
+const chatSend = document.getElementById('chatSend');
+
+chatBubble.addEventListener('click', ()=>{
+  chatWindow.classList.toggle('open');
+  chatBubble.querySelector('.ping').style.display = 'none';
+});
+chatClose.addEventListener('click', ()=> chatWindow.classList.remove('open'));
+
+function addChatBubble(text, who){
+  const d = document.createElement('div');
+  d.className = 'bubble ' + who;
+  d.textContent = text;
+  chatBody.appendChild(d);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+function sendChat(){
+  const val = chatInput.value.trim();
+  if(!val) return;
+  addChatBubble(val, 'user');
+  chatInput.value = '';
+  setTimeout(()=>{
+    const lower = val.toLowerCase();
+    let reply = "Got it — I'll have a specialist follow up shortly with options.";
+    if(lower.includes('jet') || lower.includes('ski')) reply = "We've got Sea-Doo and Yamaha skis on the dock right now — want me to check today's availability?";
+    else if(lower.includes('car') || lower.includes('lambo') || lower.includes('ferrari')) reply = "Great pick — most supercars can be delivered same-day in Miami. What dates work for you?";
+    else if(lower.includes('price') || lower.includes('cost')) reply = "Pricing varies by unit and season — head to the Fleet section for live rates, or tell me what you're after.";
+    else if(lower.includes('live') || lower.includes('stream')) reply = "Yep! Any renter can go live from the Live section — camera preview, viewer count, the works.";
+    addChatBubble(reply, 'agent');
+  }, 1000);
+}
+chatSend.addEventListener('click', sendChat);
+chatInput.addEventListener('keydown', e=>{ if(e.key==='Enter') sendChat(); });
+</script>
 </body>
 </html>
