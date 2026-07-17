@@ -1,316 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ft. Lauderdale Car Rentals | From $45/Day</title>
-    <!-- Tailwind CSS for modern styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        html { scroll-behavior: smooth; }
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Dynamic Visuals</title>
+ <script src="https://cdn.tailwindcss.com"></script>
+ <style>
+ .parallax-bg {
+ background-image: url('https://picsum.photos/1920/1080');
+ height: 100vh;
+ background-attachment: fixed;
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
+ }
+ </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans">
+<body class="font-sans text-gray-800 bg-gray-50 overflow-x-hidden">
 
-    <!-- HEADER / NAVIGATION -->
-    <header class="bg-white shadow-md fixed w-full z-50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <i class="fa-solid fa-car-side text-blue-600 text-3xl"></i>
-                <span class="text-2xl font-bold tracking-tight text-gray-900">FTL<span class="text-blue-600">Rentals</span></span>
-            </div>
-            <nav class="hidden md:flex space-x-8 font-semibold text-gray-600">
-                <a href="#hero" class="hover:text-blue-600 transition">Home</a>
-                <a href="#fleet" class="hover:text-blue-600 transition">Our Fleet</a>
-                <a href="#why-us" class="hover:text-blue-600 transition">Why Choose Us</a>
-                <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
-            </nav>
-            <a href="#booking" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg font-semibold transition shadow-md">Book Now</a>
-        </div>
-    </header>
+ <section class="h-screen flex items-center justify-center relative z-10 overflow-hidden">
+ <video class="absolute top-0 left-0 w-full h-full object-cover z-[-1]" autoplay muted loop playsinline>
+ <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+ </video>
+ <div class="bg-black bg-opacity-50 p-8 rounded-lg text-center text-white">
+ <h1 class="text-4xl md:text-6xl font-bold mb-4">Video Background</h1>
+ <p class="text-lg mb-6">Enjoy a seamless video loop to catch user attention.</p>
+ </div>
+ </section>
 
-    <!-- HERO SECTION -->
-    <section id="hero" class="relative pt-32 pb-20 md:pt-48 md:pb-32 bg-gradient-to-r from-blue-900 to-indigo-800 text-white overflow-hidden">
-        <div class="absolute inset-0 opacity-20 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?auto=format&fit=crop&w=1920&q=80');"></div>
-        <div class="container mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center">
-            <div>
-                <span class="bg-blue-500 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full">Local Ft. Lauderdale Service</span>
-                <h1 class="text-4xl md:text-6xl font-extrabold mt-4 leading-tight">Cruising Florida <br><span class="text-blue-400">Starts at Just $45/Day</span></h1>
-                <p class="mt-6 text-lg text-gray-200">Explore Fort Lauderdale, Las Olas, and the sunny beaches with our premium, budget-friendly fleet. No hidden fees. Just turn the key and go.</p>
-                <div class="mt-8 flex flex-wrap gap-4">
-                    <a href="#fleet" class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3.5 rounded-lg font-bold transition shadow-lg">View Cars</a>
-                    <a href="#why-us" class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-900 text-white px-8 py-3.5 rounded-lg font-bold transition">Learn More</a> <!DOCTYPE html>
+ <div class="parallax-bg flex items-center justify-center relative">
+ <div class="bg-black bg-opacity-40 p-8 rounded-lg text-white">
+ <h1 class="text-4xl md:text-6xl font-bold mb-4">Parallax Scrolling</h1>
+ <button class="px-8 py-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg shadow-lg transform transition duration-300 hover:scale-105 active:scale-95">Hover Me</button>
+ </div>
+ </div> <!DOCTYPE html>
 <html lang="en">
 <head>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Dynamic Visuals</title>
  <style>
  body {
  margin: 0;
- font-family: sans-serif;
- overflow-x: hidden;
- }
-
- /* 1. Microinteractions: Button Hover Effect */
- .btn {
- padding: 12px 24px;
- background-color: #007bff;
- color: white;
- border: none;
- border-radius: 4px;
- cursor: pointer;
- transition: transform 0.2s, background-color 0.2s;
- }
- .btn:hover {
- background-color: #0056b3;
- transform: translateY(-3px);
- box-shadow: 0 4px 8px rgba(0,0,0,0.2);
- }
-
- /* 2. Parallax: Section Background */
- .parallax-section {
- height: 100vh;
+ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+ background: #0f172a;
+ color: #f8fafc;
  display: flex;
- align-items: center;
  justify-content: center;
- color: white;
- position: relative;
- z-index: 1;
+ align-items: center;
+ min-height: 100vh;
  overflow: hidden;
  }
- .parallax-bg {
- position: absolute;
- top: 0;
- left: 0;
- width: 100%;
- height: 120%;
- background-image: url('https://picsum.photos/1920/1080');
- background-size: cover;
- background-position: center;
- transform: translateY(-10%);
- z-index: -1;
- animation: scroll 
+ .container {
+ text-align: center;
+ }
+ .circle {
+ width: 150px;
+ height: 150px;
+ background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+ border-radius: 50%;
+ margin: 0 auto 2rem;
+ animation: pulse 2s infinite ease-in-out;
+ box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+ }
+ @keyframes pulse {
+ 0%, 100% { transform: scale(1); opacity: 0.8; }
+ 50% { transform: scale(1.1); opacity: 1; box-shadow: 0 0 50px rgba(139, 92, 246, 0.8); }
+ }
+ button {
+ background: #3b82f6;
+ color: white;
+ border: none;
+ padding: 0.75rem 1.5rem;
+ font-size: 1rem;
+ font-weight: bold;
+ border-radius: 0.5rem;
+ cursor: pointer;
+ transition: transform 0.2s, background 0.2s;
+ }
+ button:hover {
+ background: #2563eb;
+ transform: scale(1.05);
  }
  </style>
 </head>
 <body>
-    <button class="btn">Hover Me</button>
-    <section class="parallax-section">
-        <div class="parallax-bg"></div>
-        <h1>Parallax Section</h1>
-    </section>
+ <div class="container">
+ <div class="circle"></div>
+ <h1>Modern Interactive Visuals</h1>
+ <p>Clean CSS animations with zero external dependencies.</p>
+ <button>Explore</button>
+ </div>
 </body>
-</html>     </div>
-            </div>
-            
-            <!-- QUICK BOOKING WIDGET -->
-            <div id="booking" class="bg-white p-8 rounded-2xl shadow-2xl text-gray-800">
-                <h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-                    <i class="fa-solid fa-calendar-check text-blue-600"></i> Reserve Your Ride
-                </h3>
-                <form class="space-y-4">
-                    <div>
-                        <label class="block text-sm font-semibold text-gray-600 mb-1">Pick-up Location</label>
-                        <select class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            <option>Fort Lauderdale-Hollywood Intl. Airport (FLL)</option>
-                            <option>Downtown Fort Lauderdale</option>
-                            <option>Fort Lauderdale Beach</option>
-                        </select>
-                    </div>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-sm font-semibold text-gray-600 mb-1">Pick-up Date</label>
-                            <input type="date" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-semibold text-gray-600 mb-1">Return Date</label>
-                            <input type="date" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-semibold text-gray-600 mb-1">Select Car Category</label>
-                        <select class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            <option>Economy (Sedans) - From $45/day</option>
-                            <option>Midsize SUV - From $55/day</option>
-                            <option>Convertible (Beach Ready) - From $75/day</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-lg font-bold text-lg transition shadow-lg">Check Availability</button>
-                </form>
-            </div>
-        </div>
-    </section>
+</html>
 
-    <!-- TRUSTED BENEFITS / STATS -->
-    <section class="bg-white py-12 border-b">
-        <div class="container mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-                <p class="text-3xl md:text-4xl font-extrabold text-blue-600">from $45</p>
-                <p class="text-sm text-gray-500 mt-1 font-medium">Unbeatable Daily Rates</p>
-            </div>
-            <div>
-                <p class="text-3xl md:text-4xl font-extrabold text-blue-600">0</p>
-                <p class="text-sm text-gray-500 mt-1 font-medium">Hidden Mileage Fees</p>
-            </div>
-            <div>
-                <p class="text-3xl md:text-4xl font-extrabold text-blue-600">24/7</p>
-                <p class="text-sm text-gray-500 mt-1 font-medium">Airport Shuttle & Support</p>
-            </div>
-            <div>
-                <p class="text-3xl md:text-4xl font-extrabold text-blue-600">4.9★</p>
-                <p class="text-sm text-gray-500 mt-1 font-medium">Customer Rating</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- FLEET SECTION -->
-    <section id="fleet" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">Choose Your Perfect Ride</h2>
-                <p class="mt-4 text-gray-600">Whether you need an efficient commuter or a spacious SUV for a family beach trip, we have you covered.</p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- CAR CARD 1 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden transition-transform hover:-translate-y-2">
-                    <img class="h-48 w-full object-cover" src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=600&q=80" alt="Economy Car">
-                    <div class="p-6">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-xl font-bold text-gray-900">Hyundai Accent <span class="text-sm font-normal text-gray-500">(or similar)</span></h3>
-                            <span class="bg-blue-100 text-blue-800 text-xs font-bold px-2.5 py-1 rounded">Best Seller</span>
-                        </div>
-                        <p class="text-sm text-gray-500 mt-1">Economy • 5 Seats • 2 Bags</p>
-                        <div class="mt-6 flex justify-between items-center border-t pt-4">
-                            <div>
-                                <span class="text-2xl font-black text-gray-900">$45</span>
-                                <span class="text-sm text-gray-500">/ day</span>
-                            </div>
-                            <a href="#booking" class="bg-gray-100 hover:bg-blue-600 hover:text-white text-blue-600 px-4 py-2 rounded-lg font-semibold transition">Rent Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CAR CARD 2 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden transition-transform hover:-translate-y-2">
-                    <img class="h-48 w-full object-cover" src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80" alt="Midsize SUV">
-                    <div class="p-6">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-xl font-bold text-gray-900">Toyota RAV4 <span class="text-sm font-normal text-gray-500">(or similar)</span></h3>
-                            <span class="bg-green-100 text-green-800 text-xs font-bold px-2.5 py-1 rounded">Spacious</span>
-                        </div>
-                        <p class="text-sm text-gray-500 mt-1">SUV • 5 Seats • 4 Bags</p>
-                        <div class="mt-6 flex justify-between items-center border-t pt-4">
-                            <div>
-                                <span class="text-2xl font-black text-gray-900">$55</span>
-                                <span class="text-sm text-gray-500">/ day</span>
-                            </div>
-                            <a href="#booking" class="bg-gray-100 hover:bg-blue-600 hover:text-white text-blue-600 px-4 py-2 rounded-lg font-semibold transition">Rent Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CAR CARD 3 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden transition-transform hover:-translate-y-2">
-                    <img class="h-48 w-full object-cover" src="https://images.unsplash.com/photo-1525609004556-c46c7d6cf0a3?auto=format&fit=crop&w=600&q=80" alt="Convertible">
-                    <div class="p-6">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-xl font-bold text-gray-900">Ford Mustang Conv. <span class="text-sm font-normal text-gray-500">(or similar)</span></h3>
-                            <span class="bg-yellow-100 text-yellow-800 text-xs font-bold px-2.5 py-1 rounded">Beach Ready</span>
-                        </div>
-                        <p class="text-sm text-gray-500 mt-1">Convertible • 4 Seats • 2 Bags</p>
-                        <div class="mt-6 flex justify-between items-center border-t pt-4">
-                            <div>
-                                <span class="text-2xl font-black text-gray-900">$75</span>
-                                <span class="text-sm text-gray-500">/ day</span>
-                            </div>
-                            <a href="#booking" class="bg-gray-100 hover:bg-blue-600 hover:text-white text-blue-600 px-4 py-2 rounded-lg font-semibold transition">Rent Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- WHY CHOOSE US -->
-    <section id="why-us" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">Why Rent with Us in Fort Lauderdale?</h2>
-                <p class="mt-4 text-gray-600">We make renting a car as smooth and relaxing as the Florida breeze.</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-10">
-                <div class="text-center p-6">
-                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl">
-                        <i class="fa-solid fa-plane-arrival"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Convenient Airport Pickup</h3>
-                    <p class="text-gray-600">Step off your flight at FLL and straight into your car. We offer complimentary airport shuttle pick-up to keep you moving quickly.</p>
-                </div>
-                <div class="text-center p-6">
-                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl">
-                        <i class="fa-solid fa-file-invoice-dollar"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Transparent Pricing</h3>
-                    <p class="text-gray-600">What you see is what you pay. Our rates include unlimited mileage and clear pricing without hidden luxury tax surprises.</p>
-                </div>
-                <div class="text-center p-6">
-                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl">
-                        <i class="fa-solid fa-road"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Unlimited Florida Miles</h3>
-                    <p class="text-gray-600">Drive from Fort Lauderdale down to Key West or up to Orlando without worrying about mileage caps. Explore the whole state freely.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT / FOOTER -->
-    <section id="contact" class="bg-gray-900 text-white py-16">
-        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12">
-            <div>
-                <h2 class="text-3xl font-extrabold mb-6">Need Help? Get in Touch!</h2>
-                <p class="text-gray-400 mb-8">Our local Fort Lauderdale team is ready to assist you. Whether you have booking questions, need custom corporate rates, or want to extend your rental, we're here to help.</p>
-                <div class="space-y-4">
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-blue-400">
-                            <i class="fa-solid fa-location-dot"></i>
-                        </div>
-                        <span class="text-gray-300">600 Terminal Dr, Fort Lauderdale, FL 33315</span>
-                    </div>
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-blue-400">
-                            <i class="fa-solid fa-phone"></i>
-                        </div>
-                        <span class="text-gray-300">+1 (954) 555-0199</span>
-                    </div>
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-blue-400">
-                            <i class="fa-solid fa-envelope"></i>
-                        </div>
-                        <span class="text-gray-300">bookings@ftlrentals.com</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="bg-gray-800 p-8 rounded-2xl">
-                <h4 class="text-xl font-bold mb-4 text-blue-400">Send Us a Direct Message</h4>
-                <form class="space-y-4">
-                    <input type="text" placeholder="Your Name" class="w-full bg-gray-700 border border-gray-600 rounded-lg p-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    <input type="email" placeholder="Your Email" class="w-full bg-gray-700 border border-gray-600 rounded-lg p-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    <textarea rows="4" placeholder="How can we help you?" class="w-full bg-gray-700 border border-gray-600 rounded-lg p-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg transition shadow-md">Send Message</button>
-                </form>
-            </div>
-        </div>
-        
-        <div class="border-t border-gray-800 mt-16 pt-8 text-center text-sm text-gray-500">
-            <p>&copy; 2026 FTLRentals. All rights reserved. Locally serving Broward County, Florida.</p>
-        </div>
-    </section>
+ <section class="h-screen flex items-center justify-center bg-gray-100">
+ <div class="text-center">
+ <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+ <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_UJNc2t.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></lottie-player>
+ <p class="mt-4 text-gray-600">Lightweight Lottie Animation</p>
+ </div>
+ </section>
 
 </body>
 </html>
