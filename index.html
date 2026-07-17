@@ -41,8 +41,68 @@
                 <p class="mt-6 text-lg text-gray-200">Explore Fort Lauderdale, Las Olas, and the sunny beaches with our premium, budget-friendly fleet. No hidden fees. Just turn the key and go.</p>
                 <div class="mt-8 flex flex-wrap gap-4">
                     <a href="#fleet" class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3.5 rounded-lg font-bold transition shadow-lg">View Cars</a>
-                    <a href="#why-us" class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-900 text-white px-8 py-3.5 rounded-lg font-bold transition">Learn More</a> <iframe width="560" height="315" src="https://www.youtube.com/embed/CmvZcsyP_AM" frameborder="0" allowfullscreen></iframe>
-                </div>
+                    <a href="#why-us" class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-900 text-white px-8 py-3.5 rounded-lg font-bold transition">Learn More</a> <!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <style>
+ body {
+ margin: 0;
+ font-family: sans-serif;
+ overflow-x: hidden;
+ }
+
+ /* 1. Microinteractions: Button Hover Effect */
+ .btn {
+ padding: 12px 24px;
+ background-color: #007bff;
+ color: white;
+ border: none;
+ border-radius: 4px;
+ cursor: pointer;
+ transition: transform 0.2s, background-color 0.2s;
+ }
+ .btn:hover {
+ background-color: #0056b3;
+ transform: translateY(-3px);
+ box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+ }
+
+ /* 2. Parallax: Section Background */
+ .parallax-section {
+ height: 100vh;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ color: white;
+ position: relative;
+ z-index: 1;
+ overflow: hidden;
+ }
+ .parallax-bg {
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 120%;
+ background-image: url('https://picsum.photos/1920/1080');
+ background-size: cover;
+ background-position: center;
+ transform: translateY(-10%);
+ z-index: -1;
+ animation: scroll 
+ }
+ </style>
+</head>
+<body>
+    <button class="btn">Hover Me</button>
+    <section class="parallax-section">
+        <div class="parallax-bg"></div>
+        <h1>Parallax Section</h1>
+    </section>
+</body>
+</html>     </div>
             </div>
             
             <!-- QUICK BOOKING WIDGET -->
